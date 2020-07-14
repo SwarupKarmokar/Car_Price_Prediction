@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>welcome</title>
+    <style>
+        body{
+            background-color: aqua;
+            text-align: center;
+            font-size: 20px;
+            color: blue;
+        }
+        p{
+            color: black;
+            background-color: coral;
+            margin: auto;
+            width: 500px;
+        }
+        input{
+            padding: 5px;
+            background-color: darkorange;
+        }
+        form{
+            background-color: darkseagreen;
+            width: 500px;
+            margin: auto;
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>WELCOME</h1>
+    <p>If you worry about your old car selling price</p>
+    <p>Just relax and predict your car price with your car details</p>
+    <div>
+        <h4 style="color: darkgreen;">Put Your Car Details</h4>
+        <div>
+            <form action="{{url_for('predict')}}" method="POST">
+                Kilometer Driven<br>
+                <input type="number" step="any" name="Kms_Driven" required="required" /><br>
+                Buying Price<br>
+                <input type="number" step="any" name="Buying_Price" required="required" /><br>
+                How much Old<br>
+                <input type="number" step="any" name="No_Of_Year" required="required" /><br>
+                Fuel_Type_Diesel<br>
+                <input type="number" step="any" name="Fuel_Type_Diesel" required="required" /><br>
+                Fuel_Type_Petrol<br>
+                <input type="number" step="any" name="Fuel_Type_Petrol" required="required" /><br>
+                Seller_Type(Individual=1/Dealer=0)<br>
+                <input type="number" step="any" name="Seller_Type_Individual" required="required" /><br>
+                Transmission(Manual=1/Automatic=0)<br>
+                <input type="number" step="any" name="Transmission_Manual" required="required" /><br>
+                <button style="color: red" type="submit" class="btn btn-primary btn-block btn-large">predict</button>
+            </form>
+            <div>
+                {{ prediction_text }}
+            </div>
+        </div>
+    </div>
+</body>
+</html>
